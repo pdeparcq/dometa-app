@@ -1,76 +1,21 @@
 import { Component, OnInit } from '@angular/core';
-import { Car } from './domain/car';
-import { CarService } from './services/car.service';
-
-export class PrimeCar implements Car {
-    constructor(public vin?, public year?, public brand?, public color?) {}
-}
+import { AggregatesService } from './dometa-api/api/aggregates.service';
+import { EntityModel } from './dometa-api/model/entityModel';
+import { environment } from 'src/environments/environment';
 
 @Component({
     selector: 'app-root',
     templateUrl: './app.component.html',
     styleUrls: ['./app.component.scss'],
-    providers: [CarService]
+    providers: [ AggregatesService ]
 })
 export class AppComponent implements OnInit {
 
-    displayDialog: boolean;
+    public aggregates : EntityModel[] = [];
 
-    car: Car = new PrimeCar();
-
-    selectedCar: Car;
-
-    newCar: boolean;
-
-    cars: Car[];
-
-    cols: any[];
-
-    constructor(private carService: CarService) { }
+    constructor(private aggregateService: AggregatesService) { }
 
     ngOnInit() {
-        this.carService.getCarsSmall().then(cars => this.cars = cars);
-
-        this.cols = [
-            { field: 'vin', header: 'Vin' },
-            { field: 'year', header: 'Year' },
-            { field: 'brand', header: 'Brand' },
-            { field: 'color', header: 'Color' }
-        ];
-    }
-
-    showDialogToAdd() {
-        this.newCar = true;
-        this.car = new PrimeCar();
-        this.displayDialog = true;
-    }
-
-    save() {
-        const cars = [...this.cars];
-        if (this.newCar) {
-            cars.push(this.car);
-        } else {
-            cars[this.findSelectedCarIndex()] = this.car;
-        }
-        this.cars = cars;
-        this.car = null;
-        this.displayDialog = false;
-    }
-
-    delete() {
-        const index = this.findSelectedCarIndex();
-        this.cars = this.cars.filter((val, i) => i !== index);
-        this.car = null;
-        this.displayDialog = false;
-    }
-
-    onRowSelect(event) {
-        this.newCar = false;
-        this.car = {...event.data};
-        this.displayDialog = true;
-    }
-
-    findSelectedCarIndex(): number {
-        return this.cars.indexOf(this.selectedCar);
+        this.aggregateService.apiBcBoundedContextIdAggregatesGet(environment.boundedContextId).subscribe(r => this.aggregates = r)
     }
 }
