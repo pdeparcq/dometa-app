@@ -7,6 +7,8 @@ import { InputTextModule } from 'primeng/inputtext';
 import { ButtonModule } from 'primeng/button';
 import { TableModule } from 'primeng/table';
 import { DialogModule } from 'primeng/dialog';
+import { AccordionModule } from 'primeng/accordion';
+import { ListboxModule } from 'primeng/listbox';
 import { ApiModule } from './dometa-api/api.module';
 
 import { AppComponent } from './app.component';
@@ -30,7 +32,9 @@ import { environment } from 'src/environments/environment';
         HttpClientModule,
         InputTextModule,
         DialogModule,
-        ButtonModule
+        ButtonModule,
+        AccordionModule,
+        ListboxModule
     ],
     providers: [],
     bootstrap: [AppComponent]

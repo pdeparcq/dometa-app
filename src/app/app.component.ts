@@ -12,6 +12,7 @@ import { environment } from 'src/environments/environment';
 export class AppComponent implements OnInit {
 
     public aggregates : EntityModel[] = [];
+    public selectedAggregate: EntityModel;
 
     constructor(private aggregateService: AggregatesService) { }
 

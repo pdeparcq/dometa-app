@@ -1,12 +1,11 @@
-<p>Hello World</p>
-
-<ul>
-    <li *ngFor="let aggregate of aggregates">
-        {{aggregate.name}}
-        <ul>
-            <li *ngFor="let event of aggregate.domainEvents">
-                {{event.name}}
-            </li>
-        </ul>
-    </li>
-</ul>
+<p-accordion>
+    <p-accordionTab header="Aggregates">
+        <p-listbox [options]="aggregates" [(ngModel)]="selectedAggregate" optionLabel="name"></p-listbox>
+    </p-accordionTab>
+    <p-accordionTab header="Entities">
+        Content 2
+    </p-accordionTab>
+    <p-accordionTab header="Value Objects">
+        Content 3    
+    </p-accordionTab>
+</p-accordion>
