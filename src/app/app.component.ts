@@ -31,9 +31,7 @@ export class AppComponent implements OnInit {
         this.aggregatesNode = {
             data: {
                 name: "Aggregates"
-            },
-            expandedIcon: "pi pi-folder-open",
-            collapsedIcon: "pi pi-folder"
+            }
         }
         this.nodes.push(this.aggregatesNode);
 
@@ -41,9 +39,7 @@ export class AppComponent implements OnInit {
         this.entitiesNode = {
             data: {
                 name: "Entities"
-            },
-            expandedIcon: "pi pi-folder-open",
-            collapsedIcon: "pi pi-folder"
+            }
         }
         this.nodes.push(this.entitiesNode);
 
@@ -51,9 +47,7 @@ export class AppComponent implements OnInit {
         this.valuesNode = {
             data: {
                 name: "ValueObjects"
-            },
-            expandedIcon: "pi pi-folder-open",
-            collapsedIcon: "pi pi-folder"
+            }
         }
         this.nodes.push(this.valuesNode);
     }

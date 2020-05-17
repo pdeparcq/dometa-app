@@ -12,6 +12,7 @@ import { ListboxModule } from 'primeng/listbox';
 import { ScrollPanelModule } from 'primeng/scrollpanel';
 import { TreeTableModule } from 'primeng/treetable';
 import { TreeModule } from 'primeng/tree';
+import { TabViewModule } from 'primeng/tabview';
 import { ApiModule } from './dometa-api/api.module';
 
 import { AppComponent } from './app.component';
@@ -40,7 +41,8 @@ import { environment } from 'src/environments/environment';
         ListboxModule,
         ScrollPanelModule,
         TreeModule,
-        TreeTableModule
+        TreeTableModule,
+        TabViewModule
     ],
     providers: [],
     bootstrap: [AppComponent]
