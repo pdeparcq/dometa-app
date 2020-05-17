@@ -9,6 +9,9 @@ import { TableModule } from 'primeng/table';
 import { DialogModule } from 'primeng/dialog';
 import { AccordionModule } from 'primeng/accordion';
 import { ListboxModule } from 'primeng/listbox';
+import { ScrollPanelModule } from 'primeng/scrollpanel';
+import { TreeTableModule } from 'primeng/treetable';
+import { TreeModule } from 'primeng/tree';
 import { ApiModule } from './dometa-api/api.module';
 
 import { AppComponent } from './app.component';
@@ -34,7 +37,10 @@ import { environment } from 'src/environments/environment';
         DialogModule,
         ButtonModule,
         AccordionModule,
-        ListboxModule
+        ListboxModule,
+        ScrollPanelModule,
+        TreeModule,
+        TreeTableModule
     ],
     providers: [],
     bootstrap: [AppComponent]

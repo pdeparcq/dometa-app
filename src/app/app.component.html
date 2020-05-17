@@ -1,11 +1,27 @@
-<p-accordion>
-    <p-accordionTab header="Aggregates">
-        <p-listbox [options]="aggregates" [(ngModel)]="selectedAggregate" optionLabel="name"></p-listbox>
-    </p-accordionTab>
-    <p-accordionTab header="Entities">
-        Content 2
-    </p-accordionTab>
-    <p-accordionTab header="Value Objects">
-        Content 3    
-    </p-accordionTab>
-</p-accordion>
+<div class="p-grid">
+    <div class="p-col-4">
+        <div class="ui-fluid">
+            <p-treeTable [value]="nodes">
+                <ng-template pTemplate="header">
+                    <tr>
+                        <th>Name</th>
+                        <th>Type</th>
+                    </tr>
+                </ng-template>
+                <ng-template pTemplate="body" let-rowNode let-rowData="rowData">
+                    <tr [ttRow]="rowNode">
+                        <td>
+                            <p-treeTableToggler [rowNode]="rowNode"></p-treeTableToggler>
+                            {{rowData.name}}
+                        </td>
+                        <td>{{rowData.type}}</td>
+                    </tr>
+                </ng-template>
+            </p-treeTable>
+        </div>
+    </div>
+    <div class="p-col-8">
+        Hello World !!!
+    </div>
+</div>
+
