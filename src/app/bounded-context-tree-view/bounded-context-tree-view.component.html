@@ -1,0 +1,19 @@
+<p-treeTable [value]="nodes" selectionMode="single" (onNodeSelect)="onNodeSelect($event.node)">
+    <ng-template pTemplate="header">
+        <tr>
+            <th>Name</th>
+            <th>Type</th>
+            <th>MetaType</th>
+        </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-rowNode let-rowData="rowData">
+        <tr [ttSelectableRow]="rowNode">
+            <td>
+                <p-treeTableToggler [rowNode]="rowNode"></p-treeTableToggler>
+                {{rowData.name}}
+            </td>
+            <td>{{rowData.type}}</td>
+            <td>{{rowData.metaType}}</td>
+        </tr>
+    </ng-template>
+</p-treeTable>

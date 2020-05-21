@@ -1,37 +1,11 @@
 <div class="p-grid">
     <div class="p-col-4">
-        <div class="ui-fluid">
-            <p-treeTable [value]="nodes">
-                <ng-template pTemplate="header">
-                    <tr>
-                        <th>Name</th>
-                        <th>Type</th>
-                    </tr>
-                </ng-template>
-                <ng-template pTemplate="body" let-rowNode let-rowData="rowData">
-                    <tr [ttRow]="rowNode">
-                        <td>
-                            <p-treeTableToggler [rowNode]="rowNode"></p-treeTableToggler>
-                            {{rowData.name}}
-                        </td>
-                        <td>{{rowData.type}}</td>
-                    </tr>
-                </ng-template>
-            </p-treeTable>
-        </div>
+        <app-bounded-context-tree-view [boundedContextId]="boundedContextId" (selectedNode)="onNodeSelected($event)"></app-bounded-context-tree-view>
     </div>
     <div class="p-col-8">
-        <p-tabView>
-            <p-tabPanel header="Header 1">
-               Content 1
-            </p-tabPanel>
-            <p-tabPanel header="Header 2">
-                Content 2
-            </p-tabPanel>
-            <p-tabPanel header="Header 3">
-                Content 3
-            </p-tabPanel>
-        </p-tabView>
+        <div ng-if="selectedNode">
+            <pre>{{selectedNode| json}}</pre>
+        </div>
     </div>
 </div>
 
