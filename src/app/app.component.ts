@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
 import { AggregatesService } from './dometa-api/api/aggregates.service';
 import { environment } from 'src/environments/environment';
 import { TreeNode } from 'primeng/api/treenode';
@@ -12,17 +12,18 @@ import { TreeNode } from 'primeng/api/treenode';
 export class AppComponent implements OnInit {
 
     public boundedContextId: string = environment.boundedContextId;
-    public selectedNode: any;
+    public metaType: any;
 
-    constructor() { 
+    constructor(private ref: ChangeDetectorRef) { 
     }
 
     ngOnInit() {
     }
 
     public onNodeSelected(node: TreeNode){
-        if(node.data){
-            this.selectedNode = node.data;
+        if(node.data && node.data.type){
+            this.metaType = node.data;
+            this.ref.detectChanges();
         }
     }
 }

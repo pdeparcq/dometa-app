@@ -1,0 +1,5 @@
+<p-tabView>
+    <p-tabPanel [header]="codeTemplate.name" *ngFor="let codeTemplate of codeTemplates; let i = index" [selected]="i == 0">
+        <pre>{{codeTemplate.value}}</pre>
+    </p-tabPanel>
+</p-tabView>

@@ -19,11 +19,13 @@ import { AppComponent } from './app.component';
 import { Configuration } from './dometa-api';
 import { environment } from 'src/environments/environment';
 import { BoundedContextTreeViewComponent } from './bounded-context-tree-view/bounded-context-tree-view.component';
+import { CodeTemplatesViewComponent } from './code-templates-view/code-templates-view.component';
 
 @NgModule({
     declarations: [
         AppComponent,
-        BoundedContextTreeViewComponent
+        BoundedContextTreeViewComponent,
+        CodeTemplatesViewComponent
     ],
     imports: [
         ApiModule.forRoot(() => new Configuration(

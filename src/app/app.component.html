@@ -3,8 +3,8 @@
         <app-bounded-context-tree-view [boundedContextId]="boundedContextId" (selectedNode)="onNodeSelected($event)"></app-bounded-context-tree-view>
     </div>
     <div class="p-col-8">
-        <div ng-if="selectedNode">
-            <pre>{{selectedNode| json}}</pre>
+        <div *ngIf="metaType">
+            <app-code-templates-view [boundedContextId]="boundedContextId" [type]="metaType.type" [metaTypeId]="metaType.id"></app-code-templates-view>
         </div>
     </div>
 </div>
