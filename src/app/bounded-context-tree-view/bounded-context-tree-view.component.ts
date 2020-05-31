@@ -1,6 +1,7 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { TreeNode } from 'primeng/api/treenode';
 import { AggregatesService, EntitiesService, ValueObjectsService, EntityModel, ValueObjectModel, PropertyModel, EntityRelationModel } from '../dometa-api';
+import { MetaType } from '../models/meta-type';
 
 @Component({
   selector: 'app-bounded-context-tree-view',
@@ -10,7 +11,7 @@ import { AggregatesService, EntitiesService, ValueObjectsService, EntityModel, V
 export class BoundedContextTreeViewComponent implements OnInit {
 
   @Input() boundedContextId: string;
-  @Output() selectedNode: EventEmitter<TreeNode> = new EventEmitter<TreeNode>()
+  @Output() metaTypeSelected: EventEmitter<MetaType> = new EventEmitter<MetaType>()
 
   public nodes: TreeNode[] = [];
   
@@ -62,7 +63,16 @@ export class BoundedContextTreeViewComponent implements OnInit {
   }
 
   public onNodeSelect(node: TreeNode){
-    this.selectedNode.emit(node);
+      if(node.data && node.data.type){
+          this.metaTypeSelected.emit({
+              boundedContextId: this.boundedContextId,
+              id: node.data.id,
+              type: node.data.type
+          });
+      }
+      else{
+          this.metaTypeSelected.emit(null);
+      }
   }
 
   mapEntities(entities: EntityModel[]) : TreeNode[]{

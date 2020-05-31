@@ -1,5 +1,5 @@
 <p-tabView>
     <p-tabPanel [header]="codeTemplate.name" *ngFor="let codeTemplate of codeTemplates; let i = index" [selected]="i == 0">
-        <pre>{{codeTemplate.value}}</pre>
+        <app-code-view *ngIf="metaType" [metaType]="metaType" [template]="codeTemplate"></app-code-view>
     </p-tabPanel>
 </p-tabView>

@@ -1,7 +1,8 @@
-import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { AggregatesService } from './dometa-api/api/aggregates.service';
 import { environment } from 'src/environments/environment';
 import { TreeNode } from 'primeng/api/treenode';
+import { MetaType } from './models/meta-type';
 
 @Component({
     selector: 'app-root',
@@ -12,18 +13,15 @@ import { TreeNode } from 'primeng/api/treenode';
 export class AppComponent implements OnInit {
 
     public boundedContextId: string = environment.boundedContextId;
-    public metaType: any;
+    public metaType: MetaType;
 
-    constructor(private ref: ChangeDetectorRef) { 
+    constructor() { 
     }
 
     ngOnInit() {
     }
 
-    public onNodeSelected(node: TreeNode){
-        if(node.data && node.data.type){
-            this.metaType = node.data;
-            this.ref.detectChanges();
-        }
+    public onMetaTypeSelected(metaType: MetaType){
+        this.metaType = metaType;
     }
 }

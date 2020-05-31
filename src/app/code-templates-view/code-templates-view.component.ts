@@ -1,5 +1,6 @@
 import { Component, OnInit, Input, ChangeDetectionStrategy, OnChanges, SimpleChanges } from '@angular/core';
 import { CodeTemplatesService, CodeTemplateModel } from '../dometa-api';
+import { MetaType } from '../models/meta-type';
 
 @Component({
   selector: 'app-code-templates-view',
@@ -8,20 +9,18 @@ import { CodeTemplatesService, CodeTemplateModel } from '../dometa-api';
 })
 export class CodeTemplatesViewComponent implements OnInit, OnChanges {
 
-  @Input() boundedContextId: string;
-  @Input() type: string
-  @Input() metaTypeId: string;
+  @Input() metaType: MetaType;
 
   public codeTemplates: CodeTemplateModel[];
 
   constructor(private codeTemplatesService: CodeTemplatesService) { }
 
   ngOnChanges(changes: SimpleChanges): void {
-    this.codeTemplatesService.apiTemplatesTypeGet(this.type).subscribe(templates => this.codeTemplates = templates);
+    this.codeTemplatesService.apiTemplatesTypeGet(this.metaType.type).subscribe(templates => this.codeTemplates = templates);
   }
 
   ngOnInit(): void {
-    this.codeTemplatesService.apiTemplatesTypeGet(this.type).subscribe(templates => this.codeTemplates = templates);
+    this.codeTemplatesService.apiTemplatesTypeGet(this.metaType.type).subscribe(templates => this.codeTemplates = templates);
   }
 
 }

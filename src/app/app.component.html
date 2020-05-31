@@ -1,11 +1,9 @@
 <div class="p-grid">
     <div class="p-col-4">
-        <app-bounded-context-tree-view [boundedContextId]="boundedContextId" (selectedNode)="onNodeSelected($event)"></app-bounded-context-tree-view>
+        <app-bounded-context-tree-view [boundedContextId]="boundedContextId" (metaTypeSelected)="onMetaTypeSelected($event)"></app-bounded-context-tree-view>
     </div>
     <div class="p-col-8">
-        <div *ngIf="metaType">
-            <app-code-templates-view [boundedContextId]="boundedContextId" [type]="metaType.type" [metaTypeId]="metaType.id"></app-code-templates-view>
-        </div>
+        <app-code-templates-view *ngIf="metaType" [metaType]="metaType"></app-code-templates-view>
     </div>
 </div>
 
