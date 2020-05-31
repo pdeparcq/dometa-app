@@ -1,1 +1,9 @@
-<pre>{{code}}</pre>
+<div class="p-grid">
+    <div class="p-col-6">
+        <textarea pInputTextarea [(ngModel)]="template.value" (ngModelChange)="onTemplateValueChanged($event)"></textarea>
+    </div>
+    <div class="p-col-6">
+        <pre>{{code}}</pre>
+    </div>
+</div>
+

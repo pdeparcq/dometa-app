@@ -13,6 +13,7 @@ import { ScrollPanelModule } from 'primeng/scrollpanel';
 import { TreeTableModule } from 'primeng/treetable';
 import { TreeModule } from 'primeng/tree';
 import { TabViewModule } from 'primeng/tabview';
+import { InputTextareaModule } from 'primeng/inputtextarea';
 import { ApiModule } from './dometa-api/api.module';
 
 import { AppComponent } from './app.component';
@@ -48,7 +49,8 @@ import { CodeViewComponent } from './code-view/code-view.component';
         ScrollPanelModule,
         TreeModule,
         TreeTableModule,
-        TabViewModule
+        TabViewModule,
+        InputTextareaModule
     ],
     providers: [],
     bootstrap: [AppComponent]
